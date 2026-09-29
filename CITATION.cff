@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this educational software, please cite it and the original methods papers relevant to your work."
+title: "Flowsheet RL Educational"
+type: software
+authors:
+  - family-names: Talero
+    given-names: Gabriel
+version: 0.1.0
+date-released: 2026-09-29
+license: MIT
+abstract: "An executable teaching project for graph-based process-flowsheet construction with a hierarchical actor-critic and PPO."
+keywords:
+  - reinforcement learning
+  - process systems engineering
+  - flowsheet synthesis
+  - graph neural networks
+  - proximal policy optimization
+preferred-citation:
+  type: software
+  authors:
+    - family-names: Talero
+      given-names: Gabriel
+  title: "Flowsheet RL Educational"
+  version: 0.1.0
+  year: 2026

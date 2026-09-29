@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 560" role="img" aria-labelledby="title desc">
+  <title id="title">Flowsheet RL architecture</title>
+  <desc id="desc">A partial flowsheet is encoded as graph tensors, processed by a GNN, used by a hierarchical actor and critic, evaluated by an analytical simulator, and trained with PPO.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0" stop-color="#f6fafc"/><stop offset="1" stop-color="#eef6f3"/>
+    </linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-opacity=".13"/></filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#43616b"/></marker>
+    <style>
+      .h{font:700 30px system-ui,sans-serif;fill:#123642}.t{font:600 20px system-ui,sans-serif;fill:#183b45}.s{font:15px system-ui,sans-serif;fill:#405963}.box{stroke-width:2;rx:18;filter:url(#shadow)}.a{fill:none;stroke:#43616b;stroke-width:3;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1280" height="560" rx="28" fill="url(#bg)"/>
+  <text x="52" y="58" class="h">From a process graph to a learned graph edit</text>
+  <g transform="translate(55 122)">
+    <rect class="box" width="190" height="130" fill="#e6f2f6" stroke="#2d7792"/>
+    <circle cx="48" cy="64" r="22" fill="#8ac4d7"/><circle cx="141" cy="36" r="22" fill="#8ac4d7"/><circle cx="141" cy="96" r="22" fill="#8ac4d7"/>
+    <path d="M70 58L116 42M70 70L116 90" class="a"/>
+    <text x="95" y="166" text-anchor="middle" class="t">Partial flowsheet</text><text x="95" y="190" text-anchor="middle" class="s">typed units and streams</text>
+  </g>
+  <path d="M260 187H330" class="a"/>
+  <g transform="translate(335 122)">
+    <rect class="box" width="190" height="130" fill="#eef0fb" stroke="#5364a4"/>
+    <text x="95" y="42" text-anchor="middle" class="t">Graph tensors</text>
+    <text x="95" y="72" text-anchor="middle" class="s">X [N, 15] · Z [E, 9]</text>
+    <text x="95" y="96" text-anchor="middle" class="s">edge index · globals</text>
+    <text x="95" y="166" text-anchor="middle" class="t">Observation</text><text x="95" y="190" text-anchor="middle" class="s">plus deterministic masks</text>
+  </g>
+  <path d="M540 187H610" class="a"/>
+  <g transform="translate(615 122)">
+    <rect class="box" width="190" height="130" fill="#e8f5ef" stroke="#2d8a68"/>
+    <text x="95" y="48" text-anchor="middle" class="t">Directed GNN</text>
+    <text x="95" y="78" text-anchor="middle" class="s">message passing</text>
+    <text x="95" y="102" text-anchor="middle" class="s">local + graph embeddings</text>
+    <text x="95" y="166" text-anchor="middle" class="t">Shared encoder</text><text x="95" y="190" text-anchor="middle" class="s">learned representation</text>
+  </g>
+  <path d="M820 167H890" class="a"/><path d="M820 207H890" class="a"/>
+  <g transform="translate(895 93)">
+    <rect class="box" width="250" height="150" fill="#fff4df" stroke="#c57d22"/>
+    <text x="125" y="38" text-anchor="middle" class="t">Hierarchical actor</text>
+    <text x="125" y="71" text-anchor="middle" class="s">1. select open location</text>
+    <text x="125" y="96" text-anchor="middle" class="s">2. select valid unit</text>
+    <text x="125" y="121" text-anchor="middle" class="s">3. set parameter / partner</text>
+    <rect class="box" y="178" width="250" height="70" fill="#f7e9f3" stroke="#a1548d"/>
+    <text x="125" y="207" text-anchor="middle" class="t">Critic</text><text x="125" y="232" text-anchor="middle" class="s">expected future return V(s)</text>
+  </g>
+  <path d="M1020 260V335" class="a"/>
+  <g transform="translate(875 340)">
+    <rect class="box" width="290" height="105" fill="#fcece7" stroke="#c25c3e"/>
+    <text x="145" y="42" text-anchor="middle" class="t">Analytical simulator</text>
+    <text x="145" y="70" text-anchor="middle" class="s">balances · feasibility · reward</text>
+  </g>
+  <path d="M875 392H710V485H260V275" class="a"/>
+  <g transform="translate(430 382)">
+    <rect class="box" width="260" height="90" fill="#e7f3f5" stroke="#327b86"/>
+    <text x="130" y="37" text-anchor="middle" class="t">PPO update</text>
+    <text x="130" y="64" text-anchor="middle" class="s">actor + value − entropy losses</text>
+  </g>
+  <path d="M895 267L680 382" class="a"/><path d="M1025 340L700 420" class="a"/>
+  <text x="920" y="510" class="s">Simulator boundary: no neural gradient passes through process equations</text>
+</svg>

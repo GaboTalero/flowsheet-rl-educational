@@ -1,0 +1,1992 @@
+[
+  {
+    "policy": "trained",
+    "seed": 101,
+    "graph": {
+      "step": 5,
+      "nodes": [
+        {
+          "id": 0,
+          "kind": "feed",
+          "feed": {
+            "flow": [
+              1.0887065011221109,
+              0.0,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "stream": {
+            "flow": [
+              1.0887065011221109,
+              0.0,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "parameter": 0.0,
+          "performance": 0.0
+        },
+        {
+          "id": 1,
+          "kind": "thermal",
+          "stream": {
+            "flow": [
+              1.0887065011221109,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.609499335289,
+            "pressure": 1.0
+          },
+          "parameter": 0.8153499960899353,
+          "performance": 0.0
+        },
+        {
+          "id": 2,
+          "kind": "feed",
+          "feed": {
+            "flow": [
+              0.0,
+              0.9718842066683147,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "stream": {
+            "flow": [
+              0.0,
+              0.9718842066683147,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "parameter": 0.0,
+          "performance": 0.0
+        },
+        {
+          "id": 3,
+          "kind": "mixer",
+          "stream": {
+            "flow": [
+              1.0887065011221109,
+              0.9718842066683147,
+              0.0
+            ],
+            "temperature": 362.6669491097701,
+            "pressure": 1.0
+          },
+          "parameter": 0.0,
+          "performance": 0.0
+        },
+        {
+          "id": 4,
+          "kind": "junction",
+          "parameter": 0.0,
+          "stream": {
+            "flow": [
+              1.0887065011221109,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.609499335289,
+            "pressure": 1.0
+          },
+          "performance": 0.0
+        },
+        {
+          "id": 5,
+          "kind": "reactor",
+          "parameter": 0.8593801259994507,
+          "stream": {
+            "flow": [
+              0.1599376285297246,
+              0.04311533407592838,
+              0.9287688725923863
+            ],
+            "temperature": 362.6669491097701,
+            "pressure": 1.0
+          },
+          "performance": 0.9556373755431928
+        },
+        {
+          "id": 6,
+          "kind": "reactor",
+          "parameter": 0.854235827922821,
+          "stream": {
+            "flow": [
+              0.11876995546636901,
+              0.0019476610125728003,
+              0.9699365456557418
+            ],
+            "temperature": 362.6669491097701,
+            "pressure": 1.0
+          },
+          "performance": 0.9548267210653438
+        },
+        {
+          "id": 7,
+          "kind": "product",
+          "parameter": 0.0,
+          "stream": {
+            "flow": [
+              0.11876995546636901,
+              0.0019476610125728003,
+              0.9699365456557418
+            ],
+            "temperature": 362.6669491097701,
+            "pressure": 1.0
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": 0,
+          "target": 1,
+          "port": 0,
+          "stream": {
+            "flow": [
+              1.0887065011221109,
+              0.0,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 1,
+          "target": 4,
+          "port": 0,
+          "stream": {
+            "flow": [
+              1.0887065011221109,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.609499335289,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 2,
+          "target": 3,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.0,
+              0.9718842066683147,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 3,
+          "target": 5,
+          "port": 0,
+          "stream": {
+            "flow": [
+              1.0887065011221109,
+              0.9718842066683147,
+              0.0
+            ],
+            "temperature": 362.6669491097701,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 4,
+          "target": 3,
+          "port": 0,
+          "stream": {
+            "flow": [
+              1.0887065011221109,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.609499335289,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 5,
+          "target": 6,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.1599376285297246,
+              0.04311533407592838,
+              0.9287688725923863
+            ],
+            "temperature": 362.6669491097701,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 6,
+          "target": 7,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.11876995546636901,
+              0.0019476610125728003,
+              0.9699365456557418
+            ],
+            "temperature": 362.6669491097701,
+            "pressure": 1.0
+          }
+        }
+      ]
+    },
+    "actions": [
+      {
+        "action": {
+          "stream": 1,
+          "unit": 1,
+          "parameter": 0.8153499960899353,
+          "partner": 0
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 3,
+          "unit": 0,
+          "parameter": 0.0,
+          "partner": 4
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 5,
+          "unit": 2,
+          "parameter": 0.8593801259994507,
+          "partner": 0
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 6,
+          "unit": 2,
+          "parameter": 0.854235827922821,
+          "partner": 0
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 7,
+          "unit": 4,
+          "parameter": 0.0,
+          "partner": 0
+        },
+        "reward": 7.1791307821782775,
+        "reason": "all_streams_closed",
+        "failure_reason": null
+      }
+    ],
+    "diagnostics": {
+      "calculation_status": "ok",
+      "topological_valid": true,
+      "numerical_converged": true,
+      "physical_feasible": true,
+      "specification_satisfied": false,
+      "closed": true,
+      "feasible": false,
+      "economically_attractive": false,
+      "component_balance_residual": [
+        2.7755575615628914e-17,
+        2.0816681711721685e-17,
+        0.0
+      ],
+      "elemental_balance_residual": [
+        0.0,
+        0.0
+      ],
+      "mass_balance_residual": 0.0,
+      "max_unit_balance_residual": 2.0816681711721685e-17,
+      "energy": 2.5849134159455565,
+      "capital_cost": 3.088310222029686,
+      "product_purity": 0.8893163198106105,
+      "product_recovery": 0.9979959947911392,
+      "product_c": 0.9699365456557418,
+      "profit_proxy": 8.536484198113376,
+      "extent": 0.9699365456557418,
+      "infeasibility_reason": null,
+      "warnings": [],
+      "unit_diagnostics": [
+        {
+          "node": 1,
+          "kind": "thermal",
+          "balance_residual": 0.0,
+          "energy": 1.2913093302116783,
+          "extent": 0.0
+        },
+        {
+          "node": 4,
+          "kind": "junction",
+          "balance_residual": 0.0,
+          "energy": 0.0,
+          "extent": 0.0
+        },
+        {
+          "node": 3,
+          "kind": "mixer",
+          "balance_residual": 0.0,
+          "energy": 0.0,
+          "extent": 0.0
+        },
+        {
+          "node": 5,
+          "kind": "reactor",
+          "balance_residual": 0.0,
+          "energy": 0.8969836554131325,
+          "extent": 0.9287688725923863
+        },
+        {
+          "node": 6,
+          "kind": "reactor",
+          "balance_residual": 2.0816681711721685e-17,
+          "energy": 0.3966204303207458,
+          "extent": 0.04116767306335558
+        }
+      ],
+      "termination_reason": "all_streams_closed",
+      "reward_breakdown": {
+        "product_value": 8.875341252733852,
+        "utility": -0.5169826831891113,
+        "capital": -0.9264930666089057,
+        "complexity": -0.2,
+        "success": 0.0,
+        "specification": -0.04273472075755791,
+        "open_streams": -0.0,
+        "failure": -0.0,
+        "step": -0.01
+      },
+      "simulator_calls": 6,
+      "num_units": 4,
+      "steps": 5,
+      "bootstrap_allowed": false,
+      "fidelity": "source"
+    },
+    "reward_breakdown": {
+      "product_value": 8.875341252733852,
+      "utility": -0.5169826831891113,
+      "capital": -0.9264930666089057,
+      "complexity": -0.2,
+      "success": 0.0,
+      "specification": -0.04273472075755791,
+      "open_streams": -0.0,
+      "failure": -0.0,
+      "step": -0.01
+    }
+  },
+  {
+    "policy": "trained",
+    "seed": 102,
+    "graph": {
+      "step": 5,
+      "nodes": [
+        {
+          "id": 0,
+          "kind": "feed",
+          "feed": {
+            "flow": [
+              0.9319982290008608,
+              0.0,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "stream": {
+            "flow": [
+              0.9319982290008608,
+              0.0,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "parameter": 0.0,
+          "performance": 0.0
+        },
+        {
+          "id": 1,
+          "kind": "thermal",
+          "stream": {
+            "flow": [
+              0.9319982290008608,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.61203253269196,
+            "pressure": 1.0
+          },
+          "parameter": 0.8153648972511292,
+          "performance": 0.0
+        },
+        {
+          "id": 2,
+          "kind": "feed",
+          "feed": {
+            "flow": [
+              0.0,
+              1.0171887029680455,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "stream": {
+            "flow": [
+              0.0,
+              1.0171887029680455,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "parameter": 0.0,
+          "performance": 0.0
+        },
+        {
+          "id": 3,
+          "kind": "mixer",
+          "stream": {
+            "flow": [
+              0.9319982290008608,
+              1.0171887029680455,
+              0.0
+            ],
+            "temperature": 356.71400851584656,
+            "pressure": 1.0
+          },
+          "parameter": 0.0,
+          "performance": 0.0
+        },
+        {
+          "id": 4,
+          "kind": "junction",
+          "parameter": 0.0,
+          "stream": {
+            "flow": [
+              0.9319982290008608,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.61203253269196,
+            "pressure": 1.0
+          },
+          "performance": 0.0
+        },
+        {
+          "id": 5,
+          "kind": "reactor",
+          "parameter": 0.859836995601654,
+          "stream": {
+            "flow": [
+              0.05161871477631186,
+              0.13680918874349657,
+              0.880379514224549
+            ],
+            "temperature": 356.71400851584656,
+            "pressure": 1.0
+          },
+          "performance": 0.9446150076576334
+        },
+        {
+          "id": 6,
+          "kind": "reactor",
+          "parameter": 0.8553703427314758,
+          "stream": {
+            "flow": [
+              0.0029009353185150966,
+              0.0880914092856998,
+              0.9290972936823457
+            ],
+            "temperature": 356.71400851584656,
+            "pressure": 1.0
+          },
+          "performance": 0.943800706176312
+        },
+        {
+          "id": 7,
+          "kind": "product",
+          "parameter": 0.0,
+          "stream": {
+            "flow": [
+              0.0029009353185150966,
+              0.0880914092856998,
+              0.9290972936823457
+            ],
+            "temperature": 356.71400851584656,
+            "pressure": 1.0
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": 0,
+          "target": 1,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.9319982290008608,
+              0.0,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 1,
+          "target": 4,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.9319982290008608,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.61203253269196,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 2,
+          "target": 3,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.0,
+              1.0171887029680455,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 3,
+          "target": 5,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.9319982290008608,
+              1.0171887029680455,
+              0.0
+            ],
+            "temperature": 356.71400851584656,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 4,
+          "target": 3,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.9319982290008608,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.61203253269196,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 5,
+          "target": 6,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.05161871477631186,
+              0.13680918874349657,
+              0.880379514224549
+            ],
+            "temperature": 356.71400851584656,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 6,
+          "target": 7,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.0029009353185150966,
+              0.0880914092856998,
+              0.9290972936823457
+            ],
+            "temperature": 356.71400851584656,
+            "pressure": 1.0
+          }
+        }
+      ]
+    },
+    "actions": [
+      {
+        "action": {
+          "stream": 1,
+          "unit": 1,
+          "parameter": 0.8153648972511292,
+          "partner": 0
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 3,
+          "unit": 0,
+          "parameter": 0.0,
+          "partner": 4
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 5,
+          "unit": 2,
+          "parameter": 0.859836995601654,
+          "partner": 0
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 6,
+          "unit": 2,
+          "parameter": 0.8553703427314758,
+          "partner": 0
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 7,
+          "unit": 4,
+          "parameter": 0.0,
+          "partner": 0
+        },
+        "reward": 9.476639187654566,
+        "reason": "all_streams_closed",
+        "failure_reason": null
+      }
+    ],
+    "diagnostics": {
+      "calculation_status": "ok",
+      "topological_valid": true,
+      "numerical_converged": true,
+      "physical_feasible": true,
+      "specification_satisfied": true,
+      "closed": true,
+      "feasible": true,
+      "economically_attractive": true,
+      "component_balance_residual": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "elemental_balance_residual": [
+        0.0,
+        0.0
+      ],
+      "mass_balance_residual": 0.0,
+      "max_unit_balance_residual": 0.0,
+      "energy": 2.331643033865449,
+      "capital_cost": 3.0889308619499207,
+      "product_purity": 0.9107996580015711,
+      "product_recovery": 0.9968874025419286,
+      "product_c": 0.9290972936823457,
+      "profit_proxy": 8.57586616006122,
+      "extent": 0.9290972936823457,
+      "infeasibility_reason": null,
+      "warnings": [],
+      "unit_diagnostics": [
+        {
+          "node": 1,
+          "kind": "thermal",
+          "balance_residual": 0.0,
+          "energy": 1.105462042586614,
+          "extent": 0.0
+        },
+        {
+          "node": 4,
+          "kind": "junction",
+          "balance_residual": 0.0,
+          "energy": 0.0,
+          "extent": 0.0
+        },
+        {
+          "node": 3,
+          "kind": "mixer",
+          "balance_residual": 0.0,
+          "energy": 0.0,
+          "extent": 0.0
+        },
+        {
+          "node": 5,
+          "kind": "reactor",
+          "balance_residual": 0.0,
+          "energy": 0.8492011559901574,
+          "extent": 0.880379514224549
+        },
+        {
+          "node": 6,
+          "kind": "reactor",
+          "balance_residual": 0.0,
+          "energy": 0.37697983528867746,
+          "extent": 0.04871777945779676
+        }
+      ],
+      "termination_reason": "all_streams_closed",
+      "reward_breakdown": {
+        "product_value": 9.079647053012632,
+        "utility": -0.4663286067730898,
+        "capital": -0.9266792585849761,
+        "complexity": -0.2,
+        "success": 2.0,
+        "specification": -0.0,
+        "open_streams": -0.0,
+        "failure": -0.0,
+        "step": -0.01
+      },
+      "simulator_calls": 6,
+      "num_units": 4,
+      "steps": 5,
+      "bootstrap_allowed": false,
+      "fidelity": "source"
+    },
+    "reward_breakdown": {
+      "product_value": 9.079647053012632,
+      "utility": -0.4663286067730898,
+      "capital": -0.9266792585849761,
+      "complexity": -0.2,
+      "success": 2.0,
+      "specification": -0.0,
+      "open_streams": -0.0,
+      "failure": -0.0,
+      "step": -0.01
+    }
+  },
+  {
+    "policy": "trained",
+    "seed": 103,
+    "graph": {
+      "step": 5,
+      "nodes": [
+        {
+          "id": 0,
+          "kind": "feed",
+          "feed": {
+            "flow": [
+              0.9625366465445896,
+              0.0,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "stream": {
+            "flow": [
+              0.9625366465445896,
+              0.0,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "parameter": 0.0,
+          "performance": 0.0
+        },
+        {
+          "id": 1,
+          "kind": "thermal",
+          "stream": {
+            "flow": [
+              0.9625366465445896,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.6115765571594,
+            "pressure": 1.0
+          },
+          "parameter": 0.8153622150421143,
+          "performance": 0.0
+        },
+        {
+          "id": 2,
+          "kind": "feed",
+          "feed": {
+            "flow": [
+              0.0,
+              0.9448636445252095,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "stream": {
+            "flow": [
+              0.0,
+              0.9448636445252095,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "parameter": 0.0,
+          "performance": 0.0
+        },
+        {
+          "id": 3,
+          "kind": "mixer",
+          "stream": {
+            "flow": [
+              0.9625366465445896,
+              0.9448636445252095,
+              0.0
+            ],
+            "temperature": 359.85528558174957,
+            "pressure": 1.0
+          },
+          "parameter": 0.0,
+          "performance": 0.0
+        },
+        {
+          "id": 4,
+          "kind": "junction",
+          "parameter": 0.0,
+          "stream": {
+            "flow": [
+              0.9625366465445896,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.6115765571594,
+            "pressure": 1.0
+          },
+          "performance": 0.0
+        },
+        {
+          "id": 5,
+          "kind": "reactor",
+          "parameter": 0.8595653772354126,
+          "stream": {
+            "flow": [
+              0.06432160946021581,
+              0.046648607440835765,
+              0.8982150370843738
+            ],
+            "temperature": 359.85528558174957,
+            "pressure": 1.0
+          },
+          "performance": 0.9506292704655003
+        },
+        {
+          "id": 6,
+          "kind": "reactor",
+          "parameter": 0.8540187478065491,
+          "stream": {
+            "flow": [
+              0.020019903392879602,
+              0.002346901373499556,
+              0.94251674315171
+            ],
+            "temperature": 359.85528558174957,
+            "pressure": 1.0
+          },
+          "performance": 0.9496897870643594
+        },
+        {
+          "id": 7,
+          "kind": "product",
+          "parameter": 0.0,
+          "stream": {
+            "flow": [
+              0.020019903392879602,
+              0.002346901373499556,
+              0.94251674315171
+            ],
+            "temperature": 359.85528558174957,
+            "pressure": 1.0
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": 0,
+          "target": 1,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.9625366465445896,
+              0.0,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 1,
+          "target": 4,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.9625366465445896,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.6115765571594,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 2,
+          "target": 3,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.0,
+              0.9448636445252095,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 3,
+          "target": 5,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.9625366465445896,
+              0.9448636445252095,
+              0.0
+            ],
+            "temperature": 359.85528558174957,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 4,
+          "target": 3,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.9625366465445896,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.6115765571594,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 5,
+          "target": 6,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.06432160946021581,
+              0.046648607440835765,
+              0.8982150370843738
+            ],
+            "temperature": 359.85528558174957,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 6,
+          "target": 7,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.020019903392879602,
+              0.002346901373499556,
+              0.94251674315171
+            ],
+            "temperature": 359.85528558174957,
+            "pressure": 1.0
+          }
+        }
+      ]
+    },
+    "actions": [
+      {
+        "action": {
+          "stream": 1,
+          "unit": 1,
+          "parameter": 0.8153622150421143,
+          "partner": 0
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 3,
+          "unit": 0,
+          "parameter": 0.0,
+          "partner": 4
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 5,
+          "unit": 2,
+          "parameter": 0.8595653772354126,
+          "partner": 0
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 6,
+          "unit": 2,
+          "parameter": 0.8540187478065491,
+          "partner": 0
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 7,
+          "unit": 4,
+          "parameter": 0.0,
+          "partner": 0
+        },
+        "reward": 10.140460689319855,
+        "reason": "all_streams_closed",
+        "failure_reason": null
+      }
+    ],
+    "diagnostics": {
+      "calculation_status": "ok",
+      "topological_valid": true,
+      "numerical_converged": true,
+      "physical_feasible": true,
+      "specification_satisfied": true,
+      "closed": true,
+      "feasible": true,
+      "economically_attractive": true,
+      "component_balance_residual": [
+        2.0816681711721685e-17,
+        2.0816681711721685e-17,
+        0.0
+      ],
+      "elemental_balance_residual": [
+        0.0,
+        0.0
+      ],
+      "mass_balance_residual": 0.0,
+      "max_unit_balance_residual": 2.0816681711721685e-17,
+      "energy": 2.334894462769713,
+      "capital_cost": 3.0882978087663653,
+      "product_purity": 0.9768191666086135,
+      "product_recovery": 0.9975161480843314,
+      "product_c": 0.94251674315171,
+      "profit_proxy": 8.58169324565946,
+      "extent": 0.94251674315171,
+      "infeasibility_reason": null,
+      "warnings": [],
+      "unit_diagnostics": [
+        {
+          "node": 1,
+          "kind": "thermal",
+          "balance_residual": 0.0,
+          "energy": 1.1416798914069508,
+          "extent": 0.0
+        },
+        {
+          "node": 4,
+          "kind": "junction",
+          "balance_residual": 0.0,
+          "energy": 0.0,
+          "extent": 0.0
+        },
+        {
+          "node": 3,
+          "kind": "mixer",
+          "balance_residual": 0.0,
+          "energy": 0.0,
+          "extent": 0.0
+        },
+        {
+          "node": 5,
+          "kind": "reactor",
+          "balance_residual": 0.0,
+          "energy": 0.8381357581131885,
+          "extent": 0.8982150370843738
+        },
+        {
+          "node": 6,
+          "kind": "reactor",
+          "balance_residual": 2.0816681711721685e-17,
+          "energy": 0.3550788132495737,
+          "extent": 0.04430170606733621
+        }
+      ],
+      "termination_reason": "all_streams_closed",
+      "reward_breakdown": {
+        "product_value": 9.743928924503708,
+        "utility": -0.46697889255394265,
+        "capital": -0.9264893426299096,
+        "complexity": -0.2,
+        "success": 2.0,
+        "specification": -0.0,
+        "open_streams": -0.0,
+        "failure": -0.0,
+        "step": -0.01
+      },
+      "simulator_calls": 6,
+      "num_units": 4,
+      "steps": 5,
+      "bootstrap_allowed": false,
+      "fidelity": "source"
+    },
+    "reward_breakdown": {
+      "product_value": 9.743928924503708,
+      "utility": -0.46697889255394265,
+      "capital": -0.9264893426299096,
+      "complexity": -0.2,
+      "success": 2.0,
+      "specification": -0.0,
+      "open_streams": -0.0,
+      "failure": -0.0,
+      "step": -0.01
+    }
+  },
+  {
+    "policy": "trained",
+    "seed": 104,
+    "graph": {
+      "step": 5,
+      "nodes": [
+        {
+          "id": 0,
+          "kind": "feed",
+          "feed": {
+            "flow": [
+              1.0677129624739072,
+              0.0,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "stream": {
+            "flow": [
+              1.0677129624739072,
+              0.0,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "parameter": 0.0,
+          "performance": 0.0
+        },
+        {
+          "id": 1,
+          "kind": "thermal",
+          "stream": {
+            "flow": [
+              1.0677129624739072,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.60981345176697,
+            "pressure": 1.0
+          },
+          "parameter": 0.8153518438339233,
+          "performance": 0.0
+        },
+        {
+          "id": 2,
+          "kind": "feed",
+          "feed": {
+            "flow": [
+              0.0,
+              1.0384296297254694,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "stream": {
+            "flow": [
+              0.0,
+              1.0384296297254694,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "parameter": 0.0,
+          "performance": 0.0
+        },
+        {
+          "id": 3,
+          "kind": "mixer",
+          "stream": {
+            "flow": [
+              1.0677129624739072,
+              1.0384296297254694,
+              0.0
+            ],
+            "temperature": 360.12946880620086,
+            "pressure": 1.0
+          },
+          "parameter": 0.0,
+          "performance": 0.0
+        },
+        {
+          "id": 4,
+          "kind": "junction",
+          "parameter": 0.0,
+          "stream": {
+            "flow": [
+              1.0677129624739072,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.60981345176697,
+            "pressure": 1.0
+          },
+          "performance": 0.0
+        },
+        {
+          "id": 5,
+          "kind": "reactor",
+          "parameter": 0.859627902507782,
+          "stream": {
+            "flow": [
+              0.08001375451688053,
+              0.05073042176844267,
+              0.9876992079570267
+            ],
+            "temperature": 360.12946880620086,
+            "pressure": 1.0
+          },
+          "performance": 0.9511469816381739
+        },
+        {
+          "id": 6,
+          "kind": "reactor",
+          "parameter": 0.854241669178009,
+          "stream": {
+            "flow": [
+              0.03180760992255402,
+              0.0025242771741161574,
+              1.0359053525513533
+            ],
+            "temperature": 360.12946880620086,
+            "pressure": 1.0
+          },
+          "performance": 0.9502413525036686
+        },
+        {
+          "id": 7,
+          "kind": "product",
+          "parameter": 0.0,
+          "stream": {
+            "flow": [
+              0.03180760992255402,
+              0.0025242771741161574,
+              1.0359053525513533
+            ],
+            "temperature": 360.12946880620086,
+            "pressure": 1.0
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": 0,
+          "target": 1,
+          "port": 0,
+          "stream": {
+            "flow": [
+              1.0677129624739072,
+              0.0,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 1,
+          "target": 4,
+          "port": 0,
+          "stream": {
+            "flow": [
+              1.0677129624739072,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.60981345176697,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 2,
+          "target": 3,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.0,
+              1.0384296297254694,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 3,
+          "target": 5,
+          "port": 0,
+          "stream": {
+            "flow": [
+              1.0677129624739072,
+              1.0384296297254694,
+              0.0
+            ],
+            "temperature": 360.12946880620086,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 4,
+          "target": 3,
+          "port": 0,
+          "stream": {
+            "flow": [
+              1.0677129624739072,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.60981345176697,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 5,
+          "target": 6,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.08001375451688053,
+              0.05073042176844267,
+              0.9876992079570267
+            ],
+            "temperature": 360.12946880620086,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 6,
+          "target": 7,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.03180760992255402,
+              0.0025242771741161574,
+              1.0359053525513533
+            ],
+            "temperature": 360.12946880620086,
+            "pressure": 1.0
+          }
+        }
+      ]
+    },
+    "actions": [
+      {
+        "action": {
+          "stream": 1,
+          "unit": 1,
+          "parameter": 0.8153518438339233,
+          "partner": 0
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 3,
+          "unit": 0,
+          "parameter": 0.0,
+          "partner": 4
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 5,
+          "unit": 2,
+          "parameter": 0.859627902507782,
+          "partner": 0
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 6,
+          "unit": 2,
+          "parameter": 0.854241669178009,
+          "partner": 0
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 7,
+          "unit": 4,
+          "parameter": 0.0,
+          "partner": 0
+        },
+        "reward": 10.002251208198345,
+        "reason": "all_streams_closed",
+        "failure_reason": null
+      }
+    ],
+    "diagnostics": {
+      "calculation_status": "ok",
+      "topological_valid": true,
+      "numerical_converged": true,
+      "physical_feasible": true,
+      "specification_satisfied": true,
+      "closed": true,
+      "feasible": true,
+      "economically_attractive": true,
+      "component_balance_residual": [
+        -8.326672684688674e-17,
+        -8.326672684688674e-17,
+        0.0
+      ],
+      "elemental_balance_residual": [
+        0.0,
+        0.0
+      ],
+      "mass_balance_residual": 0.0,
+      "max_unit_balance_residual": 8.326672684688674e-17,
+      "energy": 2.58454803738219,
+      "capital_cost": 3.088409132957459,
+      "product_purity": 0.9679212366895762,
+      "product_recovery": 0.9975691398802021,
+      "product_c": 1.0359053525513533,
+      "profit_proxy": 8.532259051438347,
+      "extent": 1.0359053525513533,
+      "infeasibility_reason": null,
+      "warnings": [],
+      "unit_diagnostics": [
+        {
+          "node": 1,
+          "kind": "thermal",
+          "balance_residual": 0.0,
+          "energy": 1.266412352990636,
+          "extent": 0.0
+        },
+        {
+          "node": 4,
+          "kind": "junction",
+          "balance_residual": 0.0,
+          "energy": 0.0,
+          "extent": 0.0
+        },
+        {
+          "node": 3,
+          "kind": "mixer",
+          "balance_residual": 0.0,
+          "energy": 0.0,
+          "extent": 0.0
+        },
+        {
+          "node": 5,
+          "kind": "reactor",
+          "balance_residual": 0.0,
+          "energy": 0.9246958536901139,
+          "extent": 0.9876992079570267
+        },
+        {
+          "node": 6,
+          "kind": "reactor",
+          "balance_residual": 8.326672684688674e-17,
+          "energy": 0.3934398307014405,
+          "extent": 0.04820614459432651
+        }
+      ],
+      "termination_reason": "all_streams_closed",
+      "reward_breakdown": {
+        "product_value": 9.655683555562021,
+        "utility": -0.516909607476438,
+        "capital": -0.9265227398872375,
+        "complexity": -0.2,
+        "success": 2.0,
+        "specification": -0.0,
+        "open_streams": -0.0,
+        "failure": -0.0,
+        "step": -0.01
+      },
+      "simulator_calls": 6,
+      "num_units": 4,
+      "steps": 5,
+      "bootstrap_allowed": false,
+      "fidelity": "source"
+    },
+    "reward_breakdown": {
+      "product_value": 9.655683555562021,
+      "utility": -0.516909607476438,
+      "capital": -0.9265227398872375,
+      "complexity": -0.2,
+      "success": 2.0,
+      "specification": -0.0,
+      "open_streams": -0.0,
+      "failure": -0.0,
+      "step": -0.01
+    }
+  },
+  {
+    "policy": "trained",
+    "seed": 105,
+    "graph": {
+      "step": 5,
+      "nodes": [
+        {
+          "id": 0,
+          "kind": "feed",
+          "feed": {
+            "flow": [
+              1.027639066720309,
+              0.0,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "stream": {
+            "flow": [
+              1.027639066720309,
+              0.0,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "parameter": 0.0,
+          "performance": 0.0
+        },
+        {
+          "id": 1,
+          "kind": "thermal",
+          "stream": {
+            "flow": [
+              1.027639066720309,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.6104416847229,
+            "pressure": 1.0
+          },
+          "parameter": 0.8153555393218994,
+          "performance": 0.0
+        },
+        {
+          "id": 2,
+          "kind": "feed",
+          "feed": {
+            "flow": [
+              0.0,
+              1.0982919550962518,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "stream": {
+            "flow": [
+              0.0,
+              1.0982919550962518,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          },
+          "parameter": 0.0,
+          "performance": 0.0
+        },
+        {
+          "id": 3,
+          "kind": "mixer",
+          "stream": {
+            "flow": [
+              1.027639066720309,
+              1.0982919550962518,
+              0.0
+            ],
+            "temperature": 357.33427959107587,
+            "pressure": 1.0
+          },
+          "parameter": 0.0,
+          "performance": 0.0
+        },
+        {
+          "id": 4,
+          "kind": "junction",
+          "parameter": 0.0,
+          "stream": {
+            "flow": [
+              1.027639066720309,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.6104416847229,
+            "pressure": 1.0
+          },
+          "performance": 0.0
+        },
+        {
+          "id": 5,
+          "kind": "reactor",
+          "parameter": 0.8598554134368896,
+          "stream": {
+            "flow": [
+              0.05564492069964644,
+              0.12629780907558918,
+              0.9719941460206626
+            ],
+            "temperature": 357.33427959107587,
+            "pressure": 1.0
+          },
+          "performance": 0.9458516881055952
+        },
+        {
+          "id": 6,
+          "kind": "reactor",
+          "parameter": 0.8552444577217102,
+          "stream": {
+            "flow": [
+              0.0030591792460954725,
+              0.07371206762203822,
+              1.0245798874742136
+            ],
+            "temperature": 357.33427959107587,
+            "pressure": 1.0
+          },
+          "performance": 0.9450232077316104
+        },
+        {
+          "id": 7,
+          "kind": "product",
+          "parameter": 0.0,
+          "stream": {
+            "flow": [
+              0.0030591792460954725,
+              0.07371206762203822,
+              1.0245798874742136
+            ],
+            "temperature": 357.33427959107587,
+            "pressure": 1.0
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": 0,
+          "target": 1,
+          "port": 0,
+          "stream": {
+            "flow": [
+              1.027639066720309,
+              0.0,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 1,
+          "target": 4,
+          "port": 0,
+          "stream": {
+            "flow": [
+              1.027639066720309,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.6104416847229,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 2,
+          "target": 3,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.0,
+              1.0982919550962518,
+              0.0
+            ],
+            "temperature": 300.0,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 3,
+          "target": 5,
+          "port": 0,
+          "stream": {
+            "flow": [
+              1.027639066720309,
+              1.0982919550962518,
+              0.0
+            ],
+            "temperature": 357.33427959107587,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 4,
+          "target": 3,
+          "port": 0,
+          "stream": {
+            "flow": [
+              1.027639066720309,
+              0.0,
+              0.0
+            ],
+            "temperature": 418.6104416847229,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 5,
+          "target": 6,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.05564492069964644,
+              0.12629780907558918,
+              0.9719941460206626
+            ],
+            "temperature": 357.33427959107587,
+            "pressure": 1.0
+          }
+        },
+        {
+          "source": 6,
+          "target": 7,
+          "port": 0,
+          "stream": {
+            "flow": [
+              0.0030591792460954725,
+              0.07371206762203822,
+              1.0245798874742136
+            ],
+            "temperature": 357.33427959107587,
+            "pressure": 1.0
+          }
+        }
+      ]
+    },
+    "actions": [
+      {
+        "action": {
+          "stream": 1,
+          "unit": 1,
+          "parameter": 0.8153555393218994,
+          "partner": 0
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 3,
+          "unit": 0,
+          "parameter": 0.0,
+          "partner": 4
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 5,
+          "unit": 2,
+          "parameter": 0.8598554134368896,
+          "partner": 0
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 6,
+          "unit": 2,
+          "parameter": 0.8552444577217102,
+          "partner": 0
+        },
+        "reward": -0.01,
+        "reason": "running",
+        "failure_reason": null
+      },
+      {
+        "action": {
+          "stream": 7,
+          "unit": 4,
+          "parameter": 0.0,
+          "partner": 0
+        },
+        "reward": 9.627693272726246,
+        "reason": "all_streams_closed",
+        "failure_reason": null
+      }
+    ],
+    "diagnostics": {
+      "calculation_status": "ok",
+      "topological_valid": true,
+      "numerical_converged": true,
+      "physical_feasible": true,
+      "specification_satisfied": true,
+      "closed": true,
+      "feasible": true,
+      "economically_attractive": true,
+      "component_balance_residual": [
+        -2.7755575615628914e-17,
+        -2.7755575615628914e-17,
+        0.0
+      ],
+      "elemental_balance_residual": [
+        0.0,
+        0.0
+      ],
+      "mass_balance_residual": 0.0,
+      "max_unit_balance_residual": 2.7755575615628914e-17,
+      "energy": 2.554409544394829,
+      "capital_cost": 3.088888949751854,
+      "product_purity": 0.9302935780658398,
+      "product_recovery": 0.9970230995052973,
+      "product_c": 1.0245798874742136,
+      "profit_proxy": 8.53268240124845,
+      "extent": 1.0245798874742136,
+      "infeasibility_reason": null,
+      "warnings": [],
+      "unit_diagnostics": [
+        {
+          "node": 1,
+          "kind": "thermal",
+          "balance_residual": 0.0,
+          "energy": 1.2188872359617229,
+          "extent": 0.0
+        },
+        {
+          "node": 4,
+          "kind": "junction",
+          "balance_residual": 0.0,
+          "energy": 0.0,
+          "extent": 0.0
+        },
+        {
+          "node": 3,
+          "kind": "mixer",
+          "balance_residual": 0.0,
+          "energy": 0.0,
+          "extent": 0.0
+        },
+        {
+          "node": 5,
+          "kind": "reactor",
+          "balance_residual": 0.0,
+          "energy": 0.9285755255262295,
+          "extent": 0.9719941460206626
+        },
+        {
+          "node": 6,
+          "kind": "reactor",
+          "balance_residual": 2.7755575615628914e-17,
+          "energy": 0.40694678290687675,
+          "extent": 0.052585741453550966
+        }
+      ],
+      "termination_reason": "all_streams_closed",
+      "reward_breakdown": {
+        "product_value": 9.275241866530768,
+        "utility": -0.5108819088789658,
+        "capital": -0.9266666849255561,
+        "complexity": -0.2,
+        "success": 2.0,
+        "specification": -0.0,
+        "open_streams": -0.0,
+        "failure": -0.0,
+        "step": -0.01
+      },
+      "simulator_calls": 6,
+      "num_units": 4,
+      "steps": 5,
+      "bootstrap_allowed": false,
+      "fidelity": "source"
+    },
+    "reward_breakdown": {
+      "product_value": 9.275241866530768,
+      "utility": -0.5108819088789658,
+      "capital": -0.9266666849255561,
+      "complexity": -0.2,
+      "success": 2.0,
+      "specification": -0.0,
+      "open_streams": -0.0,
+      "failure": -0.0,
+      "step": -0.01
+    }
+  }
+]

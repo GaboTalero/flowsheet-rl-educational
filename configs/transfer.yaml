@@ -1,0 +1,14 @@
+model:
+  hidden_dim: 32
+  layers: 2
+train:
+  epochs: 2
+  minibatch_size: 16
+transfer:
+  seeds: [7, 11]
+  evaluation_seeds: [101, 102, 103, 104, 105]
+  source_updates: 2
+  target_updates: 2
+  rollout_steps: 32
+  freeze_encoder_updates: 1
+  strategies: [scratch, full, encoder, encoder_frozen]

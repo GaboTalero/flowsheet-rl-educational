@@ -1,0 +1,16 @@
+{
+  "update": 400,
+  "steps": 102400,
+  "episodes": 18108,
+  "loss": 0.8783252015709877,
+  "actor_loss": -0.0009349409956485033,
+  "critic_loss": 1.7580894231796265,
+  "gradient_norm": 2.624679770320654,
+  "entropy": -0.02154305495787412,
+  "approx_kl": 0.0016736480174586177,
+  "clip_fraction": 0.01171875,
+  "encoder_frozen": false,
+  "elapsed_seconds": 2990.295661800017,
+  "target_updates": 400,
+  "first_feasible_step": 528
+}

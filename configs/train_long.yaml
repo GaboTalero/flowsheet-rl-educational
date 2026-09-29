@@ -1,0 +1,16 @@
+# 102,400 transitions. Run the pilot and inspect behavior before starting.
+environment:
+  fidelity: source
+  max_units: 8
+  max_steps: 16
+model:
+  hidden_dim: 32
+  layers: 2
+train:
+  seed: 7
+  updates: 400
+  rollout_steps: 256
+  epochs: 2
+  minibatch_size: 32
+  checkpoint_interval: 5
+  evaluation_interval: 10

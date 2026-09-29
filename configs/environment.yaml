@@ -1,0 +1,11 @@
+environment:
+  fidelity: source
+  max_units: 8
+  max_steps: 16
+  feed_a: 1.0
+  feed_b: 1.0
+  feed_variation: 0.1
+  feed_temperature: 300.0
+  purity_min: 0.9
+  recovery_min: 0.6
+  balance_tolerance: 1.0e-9
