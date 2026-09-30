@@ -1,4 +1,4 @@
-"""Joint-ratio PPO with periodic durable checkpoints and CPU continuation."""
+"""Joint-ratio PPO with periodic durable checkpoints and selectable Torch device."""
 
 import json
 import random
@@ -19,8 +19,31 @@ def seed_everything(seed):
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
     torch.set_num_threads(1)
-    torch.use_deterministic_algorithms(True)
+    # Some CUDA scatter kernels used by graph operations may only provide a
+    # nondeterministic implementation. Keep strict determinism on CPU and warn
+    # rather than abort on an accelerator.
+    torch.use_deterministic_algorithms(True, warn_only=torch.cuda.is_available())
+
+
+def resolve_device(requested="cpu"):
+    requested = str(requested).lower()
+    if requested == "auto":
+        requested = "cuda" if torch.cuda.is_available() else "cpu"
+    if requested not in ("cpu", "cuda"):
+        raise ValueError("device_must_be_cpu_cuda_or_auto")
+    if requested == "cuda" and not torch.cuda.is_available():
+        raise ValueError("cuda_requested_but_not_available")
+    return torch.device(requested)
+
+
+def _move_optimizer(optimizer, device):
+    for state in optimizer.state.values():
+        for key, value in state.items():
+            if torch.is_tensor(value):
+                state[key] = value.to(device)
 
 
 def _atomic_json(path, record):
@@ -48,8 +71,18 @@ def _validate_resume(config, payload):
         raise ValueError("resume_requires_same_environment_model_reward_and_optimizer_settings")
 
 
-def train(config, output=None, model=None, evaluation_seeds=None, resume=None, verbose=False):
+def train(
+    config,
+    output=None,
+    model=None,
+    evaluation_seeds=None,
+    resume=None,
+    verbose=False,
+    device="cpu",
+):
     seed_everything(config.train.seed)
+    requested_device = str(device)
+    run_device = resolve_device(device)
     cfg = config.train
     payload = None
     if resume is not None:
@@ -57,9 +90,7 @@ def train(config, output=None, model=None, evaluation_seeds=None, resume=None, v
             raise ValueError("cannot_resume_and_supply_model")
         model, payload = load_checkpoint(resume)
         _validate_resume(config, payload)
-    model = model or ActorCritic(config.model)
-    if model.device.type != "cpu":
-        raise ValueError("this_training_runner_supports_CPU_only")
+    model = (model or ActorCritic(config.model)).to(run_device)
     initial = torch.cat([p.detach().reshape(-1).cpu() for p in model.parameters()]).clone()
     optimizer = torch.optim.Adam(model.parameters(), lr=cfg.learning_rate)
     collector = Collector(FlowsheetEnv(config.environment, config.reward), cfg.seed)
@@ -68,10 +99,16 @@ def train(config, output=None, model=None, evaluation_seeds=None, resume=None, v
     start_update, elapsed_before = 0, 0.0
     if payload:
         state = payload["training_state"]
+        checkpoint_device = state.get("device_type", "cpu")
+        if checkpoint_device != run_device.type:
+            raise ValueError("resume_requires_same_device_type")
         optimizer.load_state_dict(payload["optimizer_state_dict"])
+        _move_optimizer(optimizer, run_device)
         collector.load_state_dict(state["collector"])
         rng.bit_generator.state = state["minibatch_rng"]
         torch.set_rng_state(state["torch_rng"])
+        if run_device.type == "cuda" and state.get("cuda_rng") is not None:
+            torch.cuda.set_rng_state_all(state["cuda_rng"])
         initial = state["initial_parameters"]
         old_record = state["record"]
         history, episodes, learning_curve = (
@@ -89,6 +126,8 @@ def train(config, output=None, model=None, evaluation_seeds=None, resume=None, v
             raise ValueError("updates_is_total_budget_and_must_exceed_completed_updates")
     elif evaluation_seeds is not None:
         evaluation_seeds = list(evaluation_seeds)
+    if run_device.type == "cuda":
+        torch.cuda.synchronize()
     start = time.perf_counter()
     output = Path(output) if output is not None else None
     if output:
@@ -105,16 +144,31 @@ def train(config, output=None, model=None, evaluation_seeds=None, resume=None, v
             learning_curve.append({"training_steps": steps, **summary})
 
     def record():
+        if run_device.type == "cuda":
+            torch.cuda.synchronize()
+        elapsed = elapsed_before + time.perf_counter() - start
         final = torch.cat([p.detach().reshape(-1).cpu() for p in model.parameters()])
         return {
             "config": asdict(config),
+            "runtime": {
+                "requested_device": requested_device,
+                "device": str(run_device),
+                "torch_version": torch.__version__,
+                "cuda_available": torch.cuda.is_available(),
+                "accelerator": (
+                    torch.cuda.get_device_name(run_device) if run_device.type == "cuda" else "CPU"
+                ),
+            },
             "summary": {
                 "steps": collector.total_steps,
                 "episodes": collector.total_episodes,
                 "parameter_delta_l2": float(torch.linalg.vector_norm(final - initial)),
                 "first_feasible_step": collector.first_feasible_step,
                 "first_feasible_episode": collector.first_feasible_episode,
-                "elapsed_seconds": elapsed_before + time.perf_counter() - start,
+                "elapsed_seconds": elapsed,
+                "transitions_per_second": (
+                    collector.total_steps / elapsed if elapsed > 0 else None
+                ),
             },
             "updates": history,
             "episodes": episodes,
@@ -130,6 +184,8 @@ def train(config, output=None, model=None, evaluation_seeds=None, resume=None, v
                 "collector": collector.state_dict(),
                 "minibatch_rng": rng.bit_generator.state,
                 "torch_rng": torch.get_rng_state(),
+                "cuda_rng": torch.cuda.get_rng_state_all() if run_device.type == "cuda" else None,
+                "device_type": run_device.type,
                 "initial_parameters": initial,
                 "record": snapshot,
                 "evaluation_seeds": evaluation_seeds,

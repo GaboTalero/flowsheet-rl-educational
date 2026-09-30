@@ -147,6 +147,20 @@ For a fresh 102,400-transition run:
 
 This uses 400 updates, rollout length 256, two epochs, minibatches of 32, checkpoints every five updates and deterministic evaluation every ten. It uses CPU and one Torch thread; it does not use parallel environments or automatically stop on convergence. Keep the machine awake and the terminal open. No long campaign has been launched for you.
 
+### CPU/GPU benchmark in Colab
+
+The neural policy can run on CUDA while the analytical simulator and graph construction remain on CPU. Use identical configuration, fidelity, seed and evaluation cases for a timing comparison:
+
+```bash
+python scripts/train.py --config configs/train_pilot.yaml --fidelity target --device cpu --out runs/colab_cpu_target_pilot
+python scripts/train.py --config configs/train_pilot.yaml --fidelity target --device cuda --out runs/colab_gpu_target_pilot
+python scripts/plot_training_results.py --run runs/colab_cpu_target_pilot
+python scripts/plot_training_results.py --run runs/colab_gpu_target_pilot
+python scripts/compare_training_runs.py --run CPU=runs/colab_cpu_target_pilot --run GPU=runs/colab_gpu_target_pilot --out runs/colab_cpu_gpu_benchmark
+```
+
+`training.json` records the resolved device, accelerator, Torch version, elapsed time and transitions per second. The comparison command writes `benchmark_summary.json`, `benchmark_summary.csv`, and `benchmark_overview.png`. Small graphs and sequential Python simulation can make GPU execution slower than CPU execution; the benchmark measures that tradeoff rather than assuming acceleration.
+
 After the run completes, generate the learning and final-evaluation plots with:
 
 ```powershell

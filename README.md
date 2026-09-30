@@ -68,6 +68,8 @@ uv run python scripts/train.py --config configs/train.yaml --out runs/train_demo
 uv run python scripts/evaluate.py --checkpoint runs/train_demo/checkpoint.pt --out runs/evaluate_demo
 ```
 
+Training defaults to CPU. On a CUDA runtime, add `--device cuda`. Use [`scripts/compare_training_runs.py`](scripts/compare_training_runs.py) to compare elapsed time, throughput, and final engineering metrics across otherwise identical CPU and GPU runs; the [run guide](docs/run_model.md#cpugpu-benchmark-in-colab) includes the complete commands.
+
 For a 102,400-transition campaign like the recorded example:
 
 ```powershell

@@ -19,7 +19,7 @@ from .config import (
 from .evaluation import begin_experiment, evaluate_policy, write_json
 from .models import ActorCritic
 from .training.checkpoints import load_checkpoint, save_checkpoint
-from .training.ppo import seed_everything, train
+from .training.ppo import resolve_device, seed_everything, train
 from .transfer import run_transfer
 from .visualization import plot_comparison
 
@@ -46,6 +46,12 @@ def main(argv=None):
     parser.add_argument("--rollout-steps", type=int)
     parser.add_argument("--seeds", type=int, nargs="+", default=None)
     parser.add_argument("--fidelity", choices=["source", "target"])
+    parser.add_argument(
+        "--device",
+        choices=["cpu", "cuda", "auto"],
+        default="cpu",
+        help="Torch training device; CUDA accelerates only the neural-network work",
+    )
     args = parser.parse_args(argv)
     transfer_settings = {}
     if args.command == "transfer" and args.config:
@@ -114,6 +120,8 @@ def main(argv=None):
         TrainConfig(**asdict(config.train)),
     )
     seed_everything(config.train.seed)
+    if args.command == "train":
+        resolve_device(args.device)
     output = begin_experiment(args.out, config, " ".join(argv or sys.argv[1:]))
     if args.command in ("inspect", "baselines"):
         summaries = []
@@ -150,6 +158,7 @@ def main(argv=None):
                 evaluation_seeds=args.seeds,
                 resume=args.resume,
                 verbose=True,
+                device=args.device,
             )
         except KeyboardInterrupt:
             print(
